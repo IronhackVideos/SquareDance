@@ -1,0 +1,19 @@
+/*CSS*/ 
+
+*{ /*Animating all html elements*/
+    transition: all 1s;
+}
+
+
+h6{
+    color: #1d6da6;
+    font-size: 30px;
+    font-family: monospace;
+    border: 1px dashed gainsboro;
+    text-align: center;
+    text-decoration: underline;
+    margin: 0;
+}
+i {
+    color:pink;
+}
