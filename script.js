@@ -1,5 +1,19 @@
     /*JAVASCRIPT*/
 
-    
 
-    console.log('javascript', 34 *456 / 3453 )
+
+let name = 'niko' //variables
+
+let school = 'ironhack'
+
+const logMyName = () => { //functions
+    console.log(name + ' teaches at '+ school)
+}    
+
+
+//event listeners
+
+document.querySelector('i').onclick = logMyName;
+
+
+
