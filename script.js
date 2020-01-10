@@ -18,12 +18,27 @@ const addASquare = () => {
 }
 
 
+class Square {
+    constructor(backgroundColor, text){
+        this.backgroundColor = backgroundColor
+        this.text = text
+    }
+    addASquare = () => {
+        var square = document.createElement('div')//    <div class="square">Square</div>
+        square.className += 'square'
+        square.style.backgroundColor = this.backgroundColor; 
+        square.innerText = this.text;
+        document.body.appendChild(square)
+    }
+}
+
 //event listeners
 document.querySelector('i').onclick = logMyName;
 
-document.querySelector('.square').onclick = addASquare;
 
 setInterval(()=>{
     console.log('hello')
-    addASquare()
+    let square = new Square('pink', 'cool')
+    square.addASquare()
+    //addASquare()
 },1000)
