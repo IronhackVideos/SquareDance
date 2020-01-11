@@ -1,44 +1,44 @@
-    /*JAVASCRIPT*/
-
-
-
-let name = 'niko' //variables
-
-let school = 'ironhack'
-
-const logMyName = () => { //functions
-    console.log(name + ' teaches at '+ school)
-
-}    
-
-const addASquare = () => {
-    var square = document.createElement('div')//    <div class="square">Square</div>
-    square.className += 'square'
-    document.body.appendChild(square)
-}
 
 
 class Square {
-    constructor(backgroundColor, text){
+    constructor(backgroundColor){
         this.backgroundColor = backgroundColor
-        this.text = text
+        this.square = null;
     }
     addASquare = () => {
         var square = document.createElement('div')//    <div class="square">Square</div>
         square.className += 'square'
         square.style.backgroundColor = this.backgroundColor; 
-        square.innerText = this.text;
+        square.onclick = this.removeSquare;
+
+
+        this.square = square; 
         document.body.appendChild(square)
+    }
+    changeCSS = () => {
+        this.square.style.backgroundColor = "#"+((1<<24)*Math.random()|0).toString(16)
+        this.square.style.width = Math.random()*100 + 'px';
+        this.square.style.left =  Math.random()*window.innerWidth + 'px';
+        this.square.style.top =  Math.random()*window.innerHeight + 'px';
+        this.square.style.transform = `rotate(${Math.random()*100}deg)`
+        this.square.style.borderRadius =  Math.random()*100 + '%'
+    }
+    removeSquare = () => {
+        this.square.remove()
     }
 }
 
-//event listeners
-document.querySelector('i').onclick = logMyName;
 
 
 setInterval(()=>{
     console.log('hello')
-    let square = new Square('pink', 'cool')
+    let square = new Square('magenta')
     square.addASquare()
-    //addASquare()
-},1000)
+    setInterval(() => {
+        square.changeCSS()
+    },500)
+
+},3000)
+
+
+// "#"+((1<<24)*Math.random()|0).toString(16)
